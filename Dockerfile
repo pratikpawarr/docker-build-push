@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
-
-# Copy target directory
-COPY target/ app/
+FROM alpine:latest
+ADD HelloWorld.class HelloWorld.class
+RUN apk --update add openjdk8-jre
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "HelloWorld"]
